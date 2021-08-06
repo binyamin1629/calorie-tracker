@@ -1,0 +1,49 @@
+{%extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{%block content%}
+
+
+<h2 style="text-align: center;">Update You'r Profile </h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <!-- {% if editform.profile_image%}
+        <img style="width: 100px; height: 100px ; object-fit: cover; margin-top: 5px;" src="{{request.user.profile_image.url}}" alt="">
+        {% endif %} -->
+        {% csrf_token%}
+
+        {% for field in editform %}
+        <label class="label-class">{{ field.label }}</label>
+        {% render_field field  class='rgisterlogininput'%}
+        
+        {% endfor %} 
+        
+ 
+        <!-- {{editform.first_name.label}}
+        {{editform.first_name}}
+     
+
+        {{editform.last_name.label}}
+        {{editform.last_name}}
+
+        {{editform.email.label}}
+        {{editform.email}}
+
+        {{editform.profile_image.label}}
+        {{editform.profile_image}} -->
+        
+
+       
+
+        <input type="submit" value="Update" class="submitAuth" style="margin-bottom: 10px;">
+
+   
+    </div>
+    {{editform.email.errors}}
+    {{editform.non_field_errors}}
+</form>
+
+{%endblock%}

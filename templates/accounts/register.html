@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h4 style="text-align: center;">Rgister</h4>
+
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="container">
+        {% csrf_token%}
+        {% for field in form %}
+        <label class="label-class">{{ field.label }}</label>
+        {{ field }}
+    {% endfor %}
+
+
+
+
+
+
+        <input type="submit" value="Register" class="submitAuth">
+        {{form.email.errors}}
+        {{form.non_field_errors}}
+        <p style="text-align: center;">Alredy have an account? <a href="{% url 'login'%}">Login</a></p>
+    </div>
+</form>
+
+<!-- {%for message in messages %}
+<p>{{message}}</p>
+{%endfor%} -->
+
+
+
+
+
+
+{%endblock%}

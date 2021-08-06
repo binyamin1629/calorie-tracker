@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="{% static 'js/tggle/js'  %}"></script>
+
+
+  <title>Calorie Tracker</title>
+</head>
+<style>
+  nav{
+    position: sticky;
+    top: 0;
+  }
+  body {
+    background-color: whitesmoke;
+    min-height: 100vh;
+    width: 70;
+    /* background: linear-gradient(to right top, orangered 50%, #ddd 50%) no-repeat;
+    background-size:100% calc(100%,-100vh+10px); */
+
+  }
+
+  /* body::before{
+    content: "";
+    position: fixed;
+    left: 10;
+    top: 10px;
+    bottom: 0;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: -1;
+
+  } */
+
+  .container {
+    margin-top: 10px;
+    display: flex;
+    width: 30%;
+    height: 480px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+  }
+
+  .rgisterlogininput {
+    width: 75%;
+    margin: 5px 0 5px 0;
+
+  }
+
+  .label-class {
+    text-align: center;
+    padding: 5px;
+  }
+
+  .submitAuth {
+    width: 30%;
+
+    margin-top: 10px;
+    background-color: #007bff;
+  }
+</style>
+
+{% block js %}
+<script>
+  window.onscroll = function () { scorlpro }
+  function scorlpro() {
+    var winscrol = document.body.scrollTop || document.documentElement.scrollTop;
+    var hight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scroll = (winscrol / hight) * 100;
+    document.getElementById("scorllbar").style.width = scroll + "%";
+  }
+</script>
+{% endblock %}
+
+<body>
+
+</body>
+
+
+{%include 'includes/navbar.html'%}
+
+{%block content%}
+
+
+
+{%endblock%}
+{%include 'includes/footer.html'%}

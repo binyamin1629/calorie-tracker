@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+{% load widget_tweaks %}
+
+<h2 style="text-align: center;">Meal Types</h2>
+<p style="text-align: center;">Date Of Meal's: <strong>{{date}} </strong> </p>
+<p style="text-align: center;">Caloreies Per Day <strong>{{getCalos.total_calos}} </strong> </p>
+<div class="wrapTypes">
+    
+
+    {% for meals in meal_types %}
+
+    <div class="cards" style="width: 18rem; margin: 10px;">
+
+
+        <img src="{{ meals.image.url }}" class="card-img-top" alt="..." style="object-fit: cover; width: 200px; height: 100px;">
+
+        <h5 class="card-title">{{meals.title}}</h5>
+
+        <a href="{% url 'detailsofday' date meals.slug request.user.id %}" class="btn btn-primary" >{{meals.title}}</a>
+    </div>
+
+
+    {%endfor%}
+</div>
+<style>
+
+    .wrapTypes {
+
+        margin-top: 3px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+       max-width: 55%;
+        margin-left: 25%;
+        height: 50vh;
+  
+        padding: 10px;
+    }
+
+
+    img{
+        align-self: center;
+    }
+    .cards {
+        flex: 1 1 30%;
+        padding: 24px;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        margin:20px;
+        border: 1px solid black;
+        align-self: center;
+     
+    }
+</style>
+{%endblock%}

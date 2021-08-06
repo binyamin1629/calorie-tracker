@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+<h4 style="text-align: center;">login</h4>
+
+{%if message %}
+<p style="text-align: center;"> {{message}}</p>
+ {%endif%}
+
+
+<div class="wrap_login">
+
+    <form action="" method="post">
+        <div class="container_login">
+            {% csrf_token%}
+            <label class="label-class">Email</label>
+            <input class="rgisterlogininput" type="email" name="email">
+
+            <label class="label-class">Password</label>
+            <input class="rgisterlogininput" type="password" name="password">
+
+            <input class="submitAuth" type="submit" value="Login">
+            <p style="text-align: center;">Don't have an Account? <a href="{% url 'register'%}">Rgister</a></p>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+<style>
+    .container_login {
+        margin-top: 10px;
+        display: flex;
+        width: 400px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+
+    }
+
+    .wrap_login {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+    }
+</style>
+
+
+
+
+{%endblock%}

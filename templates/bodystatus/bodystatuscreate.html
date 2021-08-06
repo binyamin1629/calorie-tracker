@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+{% load widget_tweaks %}
+<h2 style="text-align: center;">Body Status</h2>
+<div class="wrap_body_stats">
+    <form action="" method="POST">
+
+        <div class="container_body_stats">
+            {% csrf_token%}
+
+            {{form.age.label}}
+            {{form.age}}
+
+
+            {{form.weight.label}}
+            {{form.weight}}
+
+
+            {{form.hiegth.label}}
+            {{form.hiegth}}
+
+            {{form.male.label}}
+            {{form.male}}
+            
+     
+
+            <input type="submit" value="My Body Status" class="btn btn-primary" style="margin-top: 5px;">
+        </div>
+    </form>
+</div>
+<script>
+
+
+
+</script>
+<style>
+    .container_body_stats {
+        margin-top: 10px;
+        display: flex;
+        width: 320px;
+        height: 290px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+    }
+    .wrap_body_stats{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+       
+    }
+</style>
+{%endblock%}
+
+<!-- {% for field in form %}
+<label class="label-class">{{ field.label }}</label>
+{{ field }}
+{% endfor %} -->

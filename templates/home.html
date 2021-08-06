@@ -1,0 +1,59 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block content%}
+
+<div class="home_warp">
+
+    {% for post in posts%}
+    <div class="post_wrap">
+        {{post.published|date:'D M D Y'}}
+        <h2>{{post.title}}</h2>
+     
+            <img class="cover" src="{{post.article_image.url}}" alt="">
+            <h5> Authur: {{post.authur.first_name}}</h5>
+            <a href="{% url 'showarticle' post.id %}">Read More<strong> . . .</strong></a>
+    </div>
+    {% endfor %}
+
+</div>
+<style>
+
+    .home_warp {
+        margin-top: 20px;
+        width: 100%;
+        height: 500px;
+        display: flex;
+        
+        justify-content: space-evenly;
+        align-self: center;
+    }
+
+    .post_wrap {
+        border: 1px solid black;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 460px;
+    }
+
+    h2 {
+        margin-top: 10px;
+    }
+
+    .cover {
+        object-fit: cover;
+        width: 400px;
+        height: 250px;
+        margin-top: 15px;
+    }
+    h5{
+        margin-top: 12px;
+    }
+    a{
+        text-decoration: none;
+    }
+ 
+</style>
+{%endblock%}

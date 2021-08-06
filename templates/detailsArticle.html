@@ -1,0 +1,74 @@
+{%extends 'base.html' %}
+{% load static %}
+
+
+{%block content%}
+
+<div class="proggres__bar" id="scorllbar"></div>
+<div class="warp">
+    <div class="contnet">
+        <h1>{{singlepost.title}}</h1>
+        <h6>Authur: {{singlepost.authur.first_name}}</h6>
+        <h5>{{singlepost.article|linebreaksbr }}</h5>
+        <br>
+
+
+    </div>
+
+
+</div>
+
+<script src="calorietracker\static\js\tggle.js">
+
+
+
+</script>
+<style>
+    body {
+        background: linear-gradient(to right top,lightblue 50%, #dddddd 50%);
+        background-size: 100% calc(100% - 100vh + 129px);
+        background-repeat: no-repeat;
+    }
+
+    body:before {
+        content: '';
+        position: fixed;
+        top: 110px;
+        bottom: 0;
+        width: 100%;
+        z-index: -1;
+        background: white;
+    }
+    
+
+    @keyframes progress_bar {
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .proggres__bar {
+        height: 10px;
+        width: 0%;
+        background: lightblue;
+        position: sticky;
+        top: 0;
+
+
+    }
+
+    .warp {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+       
+    }
+
+    .contnet {
+        margin-top: 20px;
+        width: 50%;
+        margin-bottom: 50px;
+
+    }
+</style>
+{%endblock%}

@@ -1,0 +1,94 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+{% load widget_tweaks %}
+
+
+<h1>Date Details!!!</h1>
+<div class="container__warp">
+    <div class="wrap_date">
+        <p>Your Calories Per day is: <strong>{{bodystatusCalos}}</strong> </p>
+         <p>Current Date:<strong>{{currentDate}} </strong> </p>
+        {% for day in getCalos%}
+        <a href="{% url 'typeofmaeldetails' day.date_of_meal request.user.id %}">
+            <div class="box">
+
+                <p>{{day.date_of_meal|date:'D d M '}}</p>
+
+                <h4>{{day.total_calos}} Calories</h4>
+                {% if day.total_calos > bodystatusCalos%}
+                <div class="arrow-down"></div>
+                {%else%}
+                <div class="arrow-up"></div>
+                {%endif%}
+
+
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</div>
+<style>
+    .container__warp {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+
+    .wrap_date {
+        width: 40%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    h1 {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .box {
+       
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        padding-left: 10px;
+        width: 350px;
+        border: 3px solid black;
+        align-self: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    h4 {
+        margin: 10px;
+    }
+
+    .arrow-up {
+
+        width: 3;
+        height: 6;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid green;
+    }
+
+    .arrow-down {
+        width: 3;
+        height: 6;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid red;
+    }
+</style>
+{%endblock%}

@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+{% load widget_tweaks %}
+
+<h1 style="text-align: center;">body Status Details</h1>
+<div class="wrap__body_details">
+    <div class="child_warp">
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        {%if user.profile_image%}
+        <h2><img class="profile_image" src="{{user.profile_image.url}}" alt=""></h2>
+        {%endif%}
+
+        <h2>Your Total Clories Per day: <strong> {{body_status.totoalCaloriesPerDay}}</strong></h2>
+        <h2>Your Age: <strong>{{body_status.age}}</strong></h2>
+        <h2>Your weight : <strong>{{body_status.weight}}</strong> Kilo</h2>
+        <h2>Your hiegth: <strong>{{body_status.hiegth}}</strong> Cm</h2>
+        <h2>
+            <a href="{% url  'cratebodystats' user.id %}"> <button class="btn btn-primary">
+                    Update Your Body Status
+                </button>
+            </a>
+        </h2>
+    </div>
+</div>
+<style>
+    h2 {
+        text-align: center;
+        margin: 3px;
+        padding: 3px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .profile_image {
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .wrap__body_details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        width: 100%;
+     
+     
+    }
+    .child_warp{
+        max-width: 30%;
+         
+        border: 1px solid black;
+    }
+</style>
+{%endblock%}
